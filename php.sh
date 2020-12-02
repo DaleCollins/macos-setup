@@ -188,7 +188,7 @@ function brew_php_install() {
 
     imagick_test /private/tmp/imagick_test.php${phpver}.png && echo "imagick correctly installed - see /private/tmp/imagick_test.php${phpver}.png" || echo 'imagick issue exists'
 
-    latest_php='7.4'
+    latest_php='8.0'
     for phpver in $phpversions
     do
         switch_icu4c67_1
@@ -283,6 +283,11 @@ function composer_global_install() {
     # composer global show -q hirak/prestissimo &>/dev/null || composer global require hirak/prestissimo -vvv
     composer global remove hirak/prestissimo || true
     composer global show -q consolidation/cgr &>/dev/null || composer global require consolidation/cgr -vvv
+
+    # if they exist as global installs remove them as CGR will install them
+    composer global remove deployer/deployer --ignore-platform-reqs &>/dev/null || true
+    composer global remove laravel/valet --ignore-platform-reqs &>/dev/null || true
+    composer global remove laravel/installer --ignore-platform-reqs &>/dev/null || true
 
     sphp70
     # use php70 as base dependency for these tools.
