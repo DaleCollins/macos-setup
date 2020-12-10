@@ -6,7 +6,7 @@
 # https://www.jetbrains.com/help/phpstorm/10.0/working-with-phpstorm-features-from-command-line.html
 # see 'Install Command Link Launcher from within the app itself.' /usr/local/bin/pstorm
 
-alias pstorm='phpstorm'
+#alias pstorm='phpstorm'
 alias diff_with_phpstorm='phpstorm diff'
 
 alias smartgit="launchSmartGit $1"
